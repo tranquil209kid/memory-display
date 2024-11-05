@@ -1,0 +1,25 @@
+modLoader="javafml"
+loaderVersion="${loader_version_range}"
+license="${mod_license}"
+
+[[mods]]
+modId="memory_display_mod"
+version="${mod_version}"
+displayName="Memory Display"
+authors="${mod_authors}"
+description='''${mod_description}'''
+logoFile= "icon.png"
+
+[[dependencies.memory_display_mod]]
+    modId="forge"
+    mandatory=true
+    versionRange="${forge_version_range}"
+    ordering="NONE"
+    side="BOTH"
+
+[[dependencies.memory_display_mod]]
+    modId="minecraft"
+    mandatory=true
+    versionRange="${minecraft_version_range}"
+    ordering="NONE"
+    side="BOTH"
