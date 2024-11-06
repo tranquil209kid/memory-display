@@ -6,6 +6,7 @@ license="${mod_license}"
 modId="memory_display_mod"
 version="${mod_version}"
 displayName="Memory Display"
+displayURL = "https://github.com/tranquil209kid/memory-display"
 authors="${mod_authors}"
 description='''${mod_description}'''
 logoFile= "icon.png"

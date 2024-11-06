@@ -28,7 +28,7 @@ public class MemoryDisplay {
         int memTextWidth = minecraft.font.width(memoryText);
 
         int memPosX = displayWidth - memTextWidth - 3;
-        int memPosY = displayHeight - 95;
+        int memPosY = displayHeight - 175;
 
         graphics.fill(memPosX - 1, memPosY - 1,
                 memPosX + memTextWidth + 1, memPosY + 10,
