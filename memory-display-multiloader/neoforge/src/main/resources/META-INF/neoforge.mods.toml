@@ -1,0 +1,27 @@
+modLoader = "javafml"
+loaderVersion = "${neoforge_loader_version_range}"
+license = "${license}"
+
+[[mods]]
+modId = "memory_display_mod"
+version = "${version}"
+displayName = "${mod_name}"
+displayURL="https://github.com/tranquil209kid/memory-display"
+logoFile="icon.png"
+credits="${credits}"
+authors = "${mod_author}"
+description = '''${description}'''
+
+[[dependencies.memory_display_mod]]
+modId = "neoforge"
+type="required"
+versionRange = "[${neoforge_version},)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.memory_display_mod]]
+modId = "minecraft"
+type="required"
+versionRange = "${minecraft_version_range}"
+ordering = "NONE"
+side = "BOTH"
