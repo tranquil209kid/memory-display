@@ -1,22 +1,19 @@
-package io.memory_display_mod.mixin;
+package io.memory_display_mod;
 
-import io.memory_display_mod.config.ConfigFabric;
+import io.memory_display_mod.config.ConfigForge;
 import io.memory_display_mod.util.MemoryMonitor;
-import net.minecraft.client.gui.components.DebugScreenOverlay;
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.util.Mth;
-import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.Shadow;
-import org.spongepowered.asm.mixin.injection.At;
-import org.spongepowered.asm.mixin.injection.Inject;
-import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-@Mixin(DebugScreenOverlay.class)
-public class DebugScreenOverlayMixin {
-    @Shadow private net.minecraft.client.Minecraft minecraft;
+public class MemoryDisplayForge {
+    private static Minecraft minecraft;
 
-    @Inject(method = "render", at = @At("TAIL"))
-    private void renderMemoryInfo(GuiGraphics graphics, CallbackInfo ci) {
+    public static void render(GuiGraphics graphics) {
+        if (minecraft == null) {
+            minecraft = Minecraft.getInstance();
+        }
+
         int displayWidth = minecraft.getWindow().getGuiScaledWidth();
         int displayHeight = minecraft.getWindow().getGuiScaledHeight();
 
@@ -31,8 +28,8 @@ public class DebugScreenOverlayMixin {
         String memoryText = " " + MemoryMonitor.getGcRateMb() + " MB/s";
         int memTextWidth = minecraft.font.width(memoryText);
 
-        int memPosX = displayWidth - memTextWidth - ConfigFabric.getHorizontalOffset();
-        int memPosY = displayHeight - ConfigFabric.getVerticalOffset();
+        int memPosX = displayWidth - memTextWidth - ConfigForge.getHorizontalOffset();
+        int memPosY = displayHeight - ConfigForge.getVerticalOffset();
 
         graphics.fill(memPosX - 1, memPosY - 1,
                 memPosX + memTextWidth + 1, memPosY + 10,
@@ -40,7 +37,7 @@ public class DebugScreenOverlayMixin {
         graphics.drawString(minecraft.font, memoryText, memPosX, memPosY, memoryColor);
     }
 
-    private static float limit(float val, float min, float max) {
+    public static float limit(float val, float min, float max) {
         if (val < min) {
             return min;
         } else {

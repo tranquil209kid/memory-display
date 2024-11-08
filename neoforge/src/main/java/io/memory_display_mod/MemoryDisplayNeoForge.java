@@ -5,7 +5,7 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.util.Mth;
 
-public class MemoryDisplay {
+public class MemoryDisplayNeoForge {
     private static Minecraft minecraft;
 
     public static void render(GuiGraphics graphics) {
@@ -28,7 +28,7 @@ public class MemoryDisplay {
         int memTextWidth = minecraft.font.width(memoryText);
 
         int memPosX = displayWidth - memTextWidth - 3;
-        int memPosY = displayHeight - 175;
+        int memPosY = displayHeight - 150;
 
         graphics.fill(memPosX - 1, memPosY - 1,
                 memPosX + memTextWidth + 1, memPosY + 10,

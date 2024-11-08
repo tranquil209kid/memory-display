@@ -34,7 +34,7 @@ public class MemoryDisplayModNeoForge {
     public void onRenderDebug(CustomizeGuiOverlayEvent.DebugText event) {
         Minecraft minecraft = Minecraft.getInstance();
         if (minecraft.getDebugOverlay().showDebugScreen()) {
-            MemoryDisplay.render(event.getGuiGraphics());
+            MemoryDisplayNeoForge.render(event.getGuiGraphics());
         }
     }
 }

@@ -1,5 +1,6 @@
 package io.memory_display_mod;
 
+import io.memory_display_mod.config.ConfigForge;
 import io.memory_display_mod.util.MemoryMonitor;
 import net.minecraft.client.Minecraft;
 import net.minecraftforge.api.distmarker.Dist;
@@ -16,6 +17,7 @@ public class MemoryDisplayModForge {
     public static final String MOD_ID = "memory_display_mod";
 
     public MemoryDisplayModForge() {
+        ConfigForge.register();
         MinecraftForge.EVENT_BUS.register(this);
         MinecraftForge.EVENT_BUS.register(new MemoryEventHandler());
     }
@@ -35,7 +37,7 @@ public class MemoryDisplayModForge {
     public void onRenderDebug(CustomizeGuiOverlayEvent.DebugText event) {
         Minecraft minecraft = Minecraft.getInstance();
         if (minecraft.getDebugOverlay().showDebugScreen()) {
-            MemoryDisplay.render(event.getGuiGraphics());
+            MemoryDisplayForge.render(event.getGuiGraphics());
         }
     }
 }
