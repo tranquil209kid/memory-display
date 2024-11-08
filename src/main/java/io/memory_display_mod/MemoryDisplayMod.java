@@ -1,5 +1,6 @@
 package io.memory_display_mod;
 
+import io.memory_display_mod.config.Config;
 import io.memory_display_mod.util.MemoryMonitor;
 import net.minecraft.client.Minecraft;
 import net.minecraftforge.api.distmarker.Dist;
@@ -16,6 +17,7 @@ public class MemoryDisplayMod {
     public static final String MOD_ID = "memory_display_mod";
 
     public MemoryDisplayMod() {
+        Config.register();
         MinecraftForge.EVENT_BUS.register(this);
         MinecraftForge.EVENT_BUS.register(new MemoryEventHandler());
     }

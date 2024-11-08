@@ -1,5 +1,6 @@
 package io.memory_display_mod;
 
+import io.memory_display_mod.config.Config;
 import io.memory_display_mod.util.MemoryMonitor;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
@@ -27,8 +28,8 @@ public class MemoryDisplay {
         String memoryText = " " + MemoryMonitor.getGcRateMb() + " MB/s";
         int memTextWidth = minecraft.font.width(memoryText);
 
-        int memPosX = displayWidth - memTextWidth - 3;
-        int memPosY = displayHeight - 175;
+        int memPosX = displayWidth - memTextWidth - Config.getHorizontalOffset();
+        int memPosY = displayHeight - Config.getVerticalOffset();
 
         graphics.fill(memPosX - 1, memPosY - 1,
                 memPosX + memTextWidth + 1, memPosY + 10,
